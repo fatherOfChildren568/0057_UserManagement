@@ -34,7 +34,8 @@ public class Main {
                         }
                         //check exist username in database
                         if(userController.isExist(username)){
-                            System.out.print(Message.MSG_USER_EXIST);
+                            System.out.println(Message.MSG_USER_EXIST);
+                            continue;
                         }
                         //input password
                         System.out.print(Message.MSG_PASSWORD);
@@ -48,7 +49,8 @@ public class Main {
                         dto.setPassword(password);
                         //controller receive data
                         userController.setInput(dto);
-                        //
+                        //put username and password into database
+                        userController.createNewAccount();
                         break;
                     // login
                     case 2:

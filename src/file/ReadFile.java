@@ -9,15 +9,29 @@ import constants.Message;
 
 public class ReadFile {
     //read data from file user.dat
-    public static Map<String, Integer> readFile(){
-        Map<String, Integer> map = new HashMap<>();
+    public Map<String, String> getDataFromFile(){
+        //create map to store data in file
+        Map<String, String> map = new HashMap<>();
         try {
             //declear
             FileReader fr = new FileReader(Message.FILE_NAME);
-            BufferedReader sb = new BufferedReader(fr);
+            BufferedReader br = new BufferedReader(fr);
             String line = "";
 
-
+            while (true) {
+                //read 1 line in file
+                line = br.readLine();
+                //check null
+                if(line == null){
+                    break;
+                }
+                String[] data = line.split("|");
+                String username = data[0];
+                String password = data[1];
+                //put data into map
+                map.put(username, password);
+            }
+            br.close();
         } catch (Exception e) {
             System.out.println(e);
         }
