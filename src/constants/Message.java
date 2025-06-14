@@ -13,4 +13,6 @@ public class Message {
     public static final String MSG_PASSWORD = "Password: ";
     public static final String MSG_USER_EXIST = "Sorry, username exist in system";
     public static final String FILE_NAME = "src/user.dat";
+    public static final String MSG_LOGIN_SUCCESS = "Login successfull !";
+    public static final String MSG_LOGIN_FAIL = "Login failed !";
 }
