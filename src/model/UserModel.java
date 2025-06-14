@@ -15,7 +15,8 @@ public class UserModel {
     public void setUsername(String username) {
         this.username = username;
     }
-
+ 
+    
     // getPassword
     public String getPassword() {
         return password;
