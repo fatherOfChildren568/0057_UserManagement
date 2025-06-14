@@ -25,36 +25,60 @@ public class Main {
                 switch (choice) {
                     // create account
                     case 1:
-                        //input username
+                        // input username
                         System.out.print(Message.MSG_USERNAME);
                         String username = sc.nextLine();
-                        //check username
-                        if(!Validator.checkString(username, 5)){
+                        // check username
+                        if (!Validator.checkString(username, 5)) {
                             continue;
                         }
-                        //check exist username in database
-                        if(userController.isExist(username)){
+                        // check exist username in database
+                        if (userController.isExist(username)) {
                             System.out.println(Message.MSG_USER_EXIST);
                             continue;
                         }
-                        //input password
+                        // input password
                         System.out.print(Message.MSG_PASSWORD);
                         String password = sc.nextLine();
-                        //check password
-                        if(!Validator.checkString(password, 6)){
+                        // check password
+                        if (!Validator.checkString(password, 6)) {
                             continue;
                         }
-                        //dto receive data
+                        // dto receive data
                         dto.setUsername(username);
                         dto.setPassword(password);
-                        //controller receive data
+                        // controller receive data
                         userController.setInput(dto);
-                        //put username and password into database
+                        // put username and password into database
                         userController.createNewAccount();
                         break;
                     // login
-                    case 2:
-
+                    case 2:// input username
+                        System.out.print(Message.MSG_USERNAME);
+                        String usernameLogin = sc.nextLine();
+                        // check username
+                        if (!Validator.checkString(usernameLogin, 5)) {
+                            continue;
+                        }
+                        
+                        // input password
+                        System.out.print(Message.MSG_PASSWORD);
+                        String passwordLogin = sc.nextLine();
+                        // check password
+                        if (!Validator.checkString(passwordLogin, 6)) {
+                            continue;
+                        }
+                        // dto receive data
+                        dto.setUsername(usernameLogin);
+                        dto.setPassword(passwordLogin);
+                        // controller receive data
+                        userController.setInput(dto);
+                        // put username and password into database
+                        if(userController.login()){
+                            System.out.println(Message.MSG_LOGIN_SUCCESS);
+                        } else {
+                            System.out.println(Message.MSG_LOGIN_FAIL);
+                        }
                         break;
                     // exit
                     case 3:

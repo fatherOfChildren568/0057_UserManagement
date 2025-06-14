@@ -21,13 +21,17 @@ public class ReadFile {
             while (true) {
                 //read 1 line in file
                 line = br.readLine();
+                //
+                System.out.println(line);
                 //check null
                 if(line == null){
                     break;
                 }
-                String[] data = line.split("|");
+                String[] data = line.split("\\|");
                 String username = data[0];
                 String password = data[1];
+                //
+                System.out.println(username + " " + password);
                 //put data into map
                 map.put(username, password);
             }
