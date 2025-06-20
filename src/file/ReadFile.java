@@ -30,8 +30,6 @@ public class ReadFile {
                 String[] data = line.split("\\|");
                 String username = data[0];
                 String password = data[1];
-                //
-                System.out.println(username + " " + password);
                 //put data into map
                 map.put(username, password);
             }
